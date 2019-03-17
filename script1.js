@@ -426,7 +426,7 @@ dataAgg = [
 		      	.transition()
 		        .style("opacity", function(s) {
 					//Find out how many words the character said at the hovered over location
-					var char = locationData.filter(function(c) { return c.outer.innername === s.Degree; });
+					var char = locationData.filter(function(c) { return c.outer.innername === s.name; });
 					return char.length === 0 ? 0.1 : 1;
 				});
  	 	})
