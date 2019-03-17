@@ -1,6 +1,6 @@
 var margin = {left:80, top:40, right:120, bottom:50},
-	width = Math.max( Math.min(window.innerWidth, 1800) - margin.left - margin.right - 20, 400),
-    height = Math.max( Math.min(window.innerHeight - 250, 1800) - margin.top - margin.bottom - 20, 400),
+	width = Math.max( Math.min(window.innerWidth, 3200) - margin.left - margin.right - 20, 600),
+    height = Math.max( Math.min(window.innerHeight - 250, 3200) - margin.top - margin.bottom - 20, 550),
     innerRadius = Math.min(width * 0.33, height * .45),
     outerRadius = innerRadius * 1.05;
 	
@@ -333,9 +333,9 @@ dataAgg = [
 	
 	//Find the total number of words per character
 	var dataChar = d3.nest()
-		.key(function(d) { return d.Sector; })
+		.key(function(d) { return d.Degree; })
 		.rollup(function(leaves) { return d3.sum(leaves, function(d) { return d.count; }); })
-		.entries(dataAgg)
+	    .entries(dataAgg)
 		.sort(function(a, b){ return d3.descending(a.count, b.count); });				
 	//Unflatten the result
 	var characterOrder = dataChar.map(function(d) { return d.key; });
@@ -383,12 +383,14 @@ dataAgg = [
 		.attr("x", 0)
 		.attr("y", -innerRadius*5/6 + 25);
 	
-	//The character pieces	
+//The character pieces
+/*
 	titles.append("text")
 		.attr("class", "character-note")
 		.attr("x", 0)
 		.attr("y", innerRadius/2)
 		.attr("dy", "0.35em");
+*/
 					
 	////////////////////////////////////////////////////////////
 	////////////////////// Draw outer arcs /////////////////////
@@ -530,7 +532,7 @@ dataAgg = [
 				});
 				
 			//Update the word count of the outer labels
-			var characterData = loom(dataAgg).filter(function(s) { return s.outer.innername === d.Degree; });
+			var characterData = loom(dataAgg).filter(function(s) { return s.outer.innername === d.name; });
 			d3.selectAll(".outer-label-value")
 				.text(function(s,i){
 					//Find which characterData is the correct one based on location
@@ -551,24 +553,29 @@ dataAgg = [
 					//Find which characterData is the correct one based on location
 					var loc = characterData.filter(function(c) { return c.outer.outername === s.outername; });
 					return loc.length === 0 ? 0.1 : 1;
-				});
+			});
 					
 			//Update the title to show the total word count of the character
 			d3.selectAll(".texts")
 				.transition()
-				.style("opacity", 1);	
+			.style("opacity", 1);
+		   
 			d3.select(".name-title")
 				.text(d.name);
 			d3.select(".value-title")
 				.text(function() {
 					var words = dataChar.filter(function(s) { return s.key === d.name; });
-					return numFormat(words[0].value);
+				    return numFormat(words[0].value) + (words[0].value === 1 ? " startup" : " startups"); 
+					
 				});
-				
-			//Show the character note
+
+		    
+		    //Show the character note
+		    /*
 			d3.selectAll(".character-note")
 				.text(characterNotes[d.name])
 				.call(wrap, 2.25*pullOutSize);
+*/
 				
 		})
      	.on("mouseout", function(d) {

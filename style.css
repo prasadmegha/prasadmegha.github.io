@@ -1,7 +1,7 @@
 html { font-size: 62.5%; } 
 
 body {
-  font-family: 'Cormorant', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   fill: #b9b9b9;
 }
@@ -76,8 +76,8 @@ a, a:link, a:visited, a:active {
 /*--- chart ---*/
 
 .name-title {
-	font-family: 'Macondo Swash Caps', cursive;
-	font-size: 2.8rem;
+        font-family: Arial, Helvetica, sans-serif;
+	font-size: 3.2rem;
 	fill: #232323;
 	cursor: default;
 	text-anchor: middle;
@@ -85,32 +85,32 @@ a, a:link, a:visited, a:active {
 
 .value-title {
 	text-anchor: middle;
-	font-size: 1.8rem;
+	font-size: 2.4rem;
   	fill: #b9b9b9;
 }
 
 .character-note {
 	text-anchor: middle;
-	font-size: 1.4rem;
+	font-size: 2.0rem;
   	fill: #232323;
 /*	font-weight: 300;*/
 }
 			
 .inner-label {
-	font-family: 'Macondo Swash Caps', cursive;
-	font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 2.0rem;
 	fill: #232323;
 	cursor: default;
 }
 
 .outer-label {
-	font-family: 'Macondo', cursive;
-	font-size: 1.6rem;
+        font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.7rem;
 	fill: #5f5f5f;
 	cursor: default;
 }
 
 .outer-label-value {
-  	font-size: 1.2rem;
+  	font-size: 1.8rem;
   	fill: #b9b9b9;
 }
