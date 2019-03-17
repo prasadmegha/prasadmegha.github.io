@@ -1,6 +1,6 @@
 var margin = {left:80, top:40, right:120, bottom:50},
-	width = Math.max( Math.min(window.innerWidth, 1200) - margin.left - margin.right - 20, 400),
-    height = Math.max( Math.min(window.innerHeight - 250, 1300) - margin.top - margin.bottom - 20, 400),
+	width = Math.max( Math.min(window.innerWidth, 1800) - margin.left - margin.right - 20, 400),
+    height = Math.max( Math.min(window.innerHeight - 250, 1800) - margin.top - margin.bottom - 20, 400),
     innerRadius = Math.min(width * 0.33, height * .45),
     outerRadius = innerRadius * 1.05;
 	

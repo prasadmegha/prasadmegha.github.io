@@ -61,11 +61,269 @@ var svg = d3.select("#lotr-chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
+
+dataAgg = [
+  {
+    "Sector": "biotechology",
+    "Degree": "BS",
+    "count": 1
+  },
+  {
+    "Sector": "biotechology",
+    "Degree": "MBA",
+    "count": 3
+  },
+  {
+    "Sector": "biotechology",
+    "Degree": "MS",
+    "count": 2
+  },
+  {
+    "Sector": "biotechology",
+    "Degree": "PhD",
+    "count": 16
+  },
+  {
+    "Sector": "enterprise software",
+    "Degree": "BA",
+    "count": 1
+  },
+  {
+    "Sector": "enterprise software",
+    "Degree": "BS",
+    "count": 7
+  },
+  {
+    "Sector": "enterprise software",
+    "Degree": "MBA",
+    "count": 8
+  },
+  {
+    "Sector": "enterprise software",
+    "Degree": "MS",
+    "count": 3
+  },
+  {
+    "Sector": "enterprise software",
+    "Degree": "PhD",
+    "count": 5
+  },
+  {
+    "Sector": "games",
+    "Degree": "BA",
+    "count": 4
+  },
+  {
+    "Sector": "games",
+    "Degree": "BE",
+    "count": 1
+  },
+  {
+    "Sector": "games",
+    "Degree": "BS",
+    "count": 3
+  },
+  {
+    "Sector": "games",
+    "Degree": "MA",
+    "count": 1
+  },
+  {
+    "Sector": "games",
+    "Degree": "MBA",
+    "count": 7
+  },
+  {
+    "Sector": "games",
+    "Degree": "MS",
+    "count": 4
+  },
+  {
+    "Sector": "games",
+    "Degree": "PhD",
+    "count": 2
+  },
+  {
+    "Sector": "health care",
+    "Degree": "BA",
+    "count": 2
+  },
+  {
+    "Sector": "health care",
+    "Degree": "BS",
+    "count": 8
+  },
+  {
+    "Sector": "health care",
+    "Degree": "MBA",
+    "count": 7
+  },
+  {
+    "Sector": "health care",
+    "Degree": "MD",
+    "count": 3
+  },
+  {
+    "Sector": "health care",
+    "Degree": "MS",
+    "count": 3
+  },
+  {
+    "Sector": "health care",
+    "Degree": "PhD",
+    "count": 7
+  },
+  {
+    "Sector": "manufacturing",
+    "Degree": "BA",
+    "count": 3
+  },
+  {
+    "Sector": "manufacturing",
+    "Degree": "BE",
+    "count": 3
+  },
+  {
+    "Sector": "manufacturing",
+    "Degree": "BS",
+    "count": 3
+  },
+  {
+    "Sector": "manufacturing",
+    "Degree": "MBA",
+    "count": 6
+  },
+  {
+    "Sector": "manufacturing",
+    "Degree": "MS",
+    "count": 3
+  },
+  {
+    "Sector": "manufacturing",
+    "Degree": "PhD",
+    "count": 3
+  },
+  {
+    "Sector": "medical",
+    "Degree": "BA",
+    "count": 1
+  },
+  {
+    "Sector": "medical",
+    "Degree": "BS",
+    "count": 3
+  },
+  {
+    "Sector": "medical",
+    "Degree": "MBA",
+    "count": 3
+  },
+  {
+    "Sector": "medical",
+    "Degree": "MS",
+    "count": 1
+  },
+  {
+    "Sector": "medical devices",
+    "Degree": "BS",
+    "count": 2
+  },
+  {
+    "Sector": "medical devices",
+    "Degree": "MBA",
+    "count": 2
+  },
+  {
+    "Sector": "medical devices",
+    "Degree": "MD",
+    "count": 2
+  },
+  {
+    "Sector": "mobile",
+    "Degree": "BA",
+    "count": 2
+  },
+  {
+    "Sector": "mobile",
+    "Degree": "BS",
+    "count": 8
+  },
+  {
+    "Sector": "mobile",
+    "Degree": "MBA",
+    "count": 8
+  },
+  {
+    "Sector": "mobile",
+    "Degree": "MS",
+    "count": 5
+  },
+  {
+    "Sector": "mobile",
+    "Degree": "PhD",
+    "count": 4
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "BA",
+    "count": 3
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "BE",
+    "count": 3
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "BS",
+    "count": 3
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "MA",
+    "count": 3
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "MBA",
+    "count": 8
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "MS",
+    "count": 6
+  },
+  {
+    "Sector": "public relations",
+    "Degree": "PhD",
+    "count": 3
+  },
+  {
+    "Sector": "software",
+    "Degree": "BS",
+    "count": 1
+  },
+  {
+    "Sector": "software",
+    "Degree": "MBA",
+    "count": 5
+  },
+  {
+    "Sector": "software",
+    "Degree": "MS",
+    "count": 7
+  },
+  {
+    "Sector": "software",
+    "Degree": "PhD",
+    "count": 7
+  }
+];
+
 ////////////////////////////////////////////////////////////
 ///////////////////// Read in data /////////////////////////
 ////////////////////////////////////////////////////////////
-			
-d3.json('degree_startups.json', function (error, dataAgg) {
+			        
 
 	////////////////////////////////////////////////////////////
 	///////////////////// Prepare the data /////////////////////
@@ -309,7 +567,7 @@ d3.json('degree_startups.json', function (error, dataAgg) {
 				
 			//Show the character note
 			d3.selectAll(".character-note")
-				.text(characterNotes[d.Degree])
+				.text(characterNotes[d.name])
 				.call(wrap, 2.25*pullOutSize);
 				
 		})
@@ -335,8 +593,7 @@ d3.json('degree_startups.json', function (error, dataAgg) {
 				.style("opacity", 0);
 			
 		});
-	  		
-});//d3.csv
+	  	
 
 ////////////////////////////////////////////////////////////
 ///////////////////// Extra functions //////////////////////
